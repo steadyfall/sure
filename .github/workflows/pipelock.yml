@@ -11,13 +11,13 @@ jobs:
   security-scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      - uses: actions/checkout@v5.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Install Helm
-        uses: azure/setup-helm@dda3372f752e03dde6b3237bc9431cdc2f7a02a2 # v5.0.0
+        uses: azure/setup-helm@v5.0.0
         with:
           version: v3.21.4
 
@@ -30,7 +30,7 @@ jobs:
           helm dependency build charts/sure
 
       - name: Pipelock Scan
-        uses: pipelab-org/pipelock@556048c1c18d84f7d61d28f686220178a4ff2c4d # v3.8.0
+        uses: pipelab-org/pipelock@v3.8.0
         with:
           version: '3.8.0'
           scan-diff: 'true'
